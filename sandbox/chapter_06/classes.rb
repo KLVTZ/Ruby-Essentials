@@ -3,8 +3,11 @@ class Animal
 	attr_writer :color
 	attr_reader :legs, :arms
 
+	@@species =	['cat', 'cow', 'dog', 'duck', 'horse', 'pig']
+	@@current_animals = [];
+
 	def self.all_species 
-		['cat', 'cow', 'dog', 'duck', 'horse', 'pig']
+		@@species
 	end
 
 	def self.create_with_attributes(noise, color)
@@ -17,6 +20,7 @@ class Animal
 		@noise = noise
 		@legs = 4
 		@arms = 0
+		@@current_animals << self #instance ~ object it is inside at the moment 
 		puts "A new animal has been instantiated."
 	end
 
@@ -47,3 +51,4 @@ animal2 = Animal.create_with_attributes("Quack", "white")
 puts animal2.noise
 puts animal2.color
 
+puts Animal.all_species.inspect
