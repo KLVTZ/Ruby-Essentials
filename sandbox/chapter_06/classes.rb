@@ -3,7 +3,18 @@ class Animal
 	attr_writer :color
 	attr_reader :legs, :arms
 
-	def initialize
+	def self.all_species 
+		['cat', 'cow', 'dog', 'duck', 'horse', 'pig']
+	end
+
+	def self.create_with_attributes(noise, color)
+		animal = self.new(noise)
+		animal.color = color
+		return animal
+	end
+
+	def initialize(noise, legs = 4, arms = 0)
+		@noise = noise
 		@legs = 4
 		@arms = 0
 		puts "A new animal has been instantiated."
@@ -22,8 +33,8 @@ class Animal
 	end
 end
 
-animal1 = Animal.new
-animal1.noise = "Moo"
+puts Animal.all_species.inspect
+animal1 = Animal.new("Moo", 4, 0)
 animal1.name = "Bob"
 animal1.color = "black"
 
@@ -31,3 +42,8 @@ puts animal1.color
 puts animal1.name
 puts animal1.noise
 puts animal1.legs
+
+animal2 = Animal.create_with_attributes("Quack", "white")
+puts animal2.noise
+puts animal2.color
+
