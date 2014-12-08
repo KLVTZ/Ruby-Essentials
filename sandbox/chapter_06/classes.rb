@@ -6,8 +6,16 @@ class Animal
 	@@species =	['cat', 'cow', 'dog', 'duck', 'horse', 'pig']
 	@@current_animals = [];
 
-	def self.all_species 
+	def self.species
 		@@species
+	end
+
+	def self.species=(array=[])
+		@@species = array
+	end
+
+	def self.current_animals
+		@@current_animals
 	end
 
 	def self.create_with_attributes(noise, color)
@@ -37,7 +45,8 @@ class Animal
 	end
 end
 
-puts Animal.all_species.inspect
+Animal.species = ['frog', 'fish']
+puts Animal.species.inspect
 animal1 = Animal.new("Moo", 4, 0)
 animal1.name = "Bob"
 animal1.color = "black"
@@ -51,4 +60,4 @@ animal2 = Animal.create_with_attributes("Quack", "white")
 puts animal2.noise
 puts animal2.color
 
-puts Animal.all_species.inspect
+puts Animal.current_animals.inspect
