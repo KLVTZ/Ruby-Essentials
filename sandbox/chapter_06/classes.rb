@@ -45,6 +45,10 @@ class Animal
 	end
 end
 
+class Cow < Animal
+
+end
+
 Animal.species = ['frog', 'fish']
 puts Animal.species.inspect
 animal1 = Animal.new("Moo", 4, 0)
@@ -61,3 +65,9 @@ puts animal2.noise
 puts animal2.color
 
 puts Animal.current_animals.inspect
+
+maisie = Cow.new("Moo!")
+puts maisie.noise
+
+puts animal1.class
+puts maisie.class
