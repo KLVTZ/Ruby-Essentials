@@ -46,7 +46,9 @@ class Animal
 end
 
 class Cow < Animal
-
+	def color
+		"The cow's color is #{@color}."
+	end
 end
 
 Animal.species = ['frog', 'fish']
@@ -66,8 +68,10 @@ puts animal2.color
 
 puts Animal.current_animals.inspect
 
-maisie = Cow.new("Moo!")
+maisie = Cow.create_with_attributes("Moo!", "yellow")
 puts maisie.noise
 
 puts animal1.class
 puts maisie.class
+
+puts maisie.color
