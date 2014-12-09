@@ -51,6 +51,13 @@ class Cow < Animal
 	end
 end
 
+class Pig < Animal
+	def noise
+		super # just a method, doesn't return it as that value.
+		"Hello and also #{super}"
+	end
+end
+
 Animal.species = ['frog', 'fish']
 puts Animal.species.inspect
 animal1 = Animal.new("Moo", 4, 0)
@@ -70,8 +77,9 @@ puts Animal.current_animals.inspect
 
 maisie = Cow.create_with_attributes("Moo!", "yellow")
 puts maisie.noise
-
 puts animal1.class
 puts maisie.class
-
 puts maisie.color
+
+wilbur = Pig.new("Oink!")
+puts wilbur.noise
